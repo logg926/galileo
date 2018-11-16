@@ -65,6 +65,8 @@ class ViewController: UIViewController, PitchEngineDelegate {
         display.text = pitch.note.string
         print(pitch)
         
+        let offsetPercentage = pitch.closestOffset.percentage
+        let absOffsetPercentage = abs(offsetPercentage)
         
     }
     

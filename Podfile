@@ -6,6 +6,7 @@ target 'Testing1' do
   use_frameworks!
   pod 'Pitchy'
   pod 'Beethoven'
+  
   # Pods for Testing1
 
 end
