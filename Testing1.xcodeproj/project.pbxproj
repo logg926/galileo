@@ -7,15 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		675F0276C6B607A7D07870BC /* Pods_Testing1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D0C02CB0B97762ADB7B5499 /* Pods_Testing1.framework */; };
 		904FBEEB219C1959000BD123 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904FBEEA219C1959000BD123 /* AppDelegate.swift */; };
 		904FBEED219C1959000BD123 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904FBEEC219C1959000BD123 /* ViewController.swift */; };
 		904FBEF0219C1959000BD123 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 904FBEEE219C1959000BD123 /* Main.storyboard */; };
 		904FBEF3219C1959000BD123 /* Testing1.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 904FBEF1219C1959000BD123 /* Testing1.xcdatamodeld */; };
 		904FBEF5219C195E000BD123 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 904FBEF4219C195E000BD123 /* Assets.xcassets */; };
 		904FBEF8219C195E000BD123 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 904FBEF6219C195E000BD123 /* LaunchScreen.storyboard */; };
+		90BD35CC219EA2E500782DD0 /* RecordPic@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90BD35C9219EA2E400782DD0 /* RecordPic@3x.png */; };
+		90BD35CD219EA2E500782DD0 /* RecordPic.png in Resources */ = {isa = PBXBuildFile; fileRef = 90BD35CA219EA2E500782DD0 /* RecordPic.png */; };
+		90BD35CE219EA2E500782DD0 /* RecordPic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90BD35CB219EA2E500782DD0 /* RecordPic@2x.png */; };
+		90BD35D2219EA33B00782DD0 /* RecordingBt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90BD35CF219EA33A00782DD0 /* RecordingBt@2x.png */; };
+		90BD35D3219EA33B00782DD0 /* RecordingBt.png in Resources */ = {isa = PBXBuildFile; fileRef = 90BD35D0219EA33B00782DD0 /* RecordingBt.png */; };
+		90BD35D4219EA33B00782DD0 /* RecordingBt@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90BD35D1219EA33B00782DD0 /* RecordingBt@3x.png */; };
+		90BD35D6219EA4DC00782DD0 /* color_splash_by_totron-d5ba2mp.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 90BD35D5219EA4DB00782DD0 /* color_splash_by_totron-d5ba2mp.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5D0C02CB0B97762ADB7B5499 /* Pods_Testing1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Testing1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AC9B5D698C6C014C54E934B /* Pods-Testing1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Testing1.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Testing1/Pods-Testing1.debug.xcconfig"; sourceTree = "<group>"; };
 		904FBEE7219C1959000BD123 /* Testing1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Testing1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		904FBEEA219C1959000BD123 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		904FBEEC219C1959000BD123 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +34,14 @@
 		904FBEF4219C195E000BD123 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		904FBEF7219C195E000BD123 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		904FBEF9219C195E000BD123 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		90BD35C9219EA2E400782DD0 /* RecordPic@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RecordPic@3x.png"; sourceTree = "<group>"; };
+		90BD35CA219EA2E500782DD0 /* RecordPic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RecordPic.png; sourceTree = "<group>"; };
+		90BD35CB219EA2E500782DD0 /* RecordPic@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RecordPic@2x.png"; sourceTree = "<group>"; };
+		90BD35CF219EA33A00782DD0 /* RecordingBt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RecordingBt@2x.png"; sourceTree = "<group>"; };
+		90BD35D0219EA33B00782DD0 /* RecordingBt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RecordingBt.png; sourceTree = "<group>"; };
+		90BD35D1219EA33B00782DD0 /* RecordingBt@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RecordingBt@3x.png"; sourceTree = "<group>"; };
+		90BD35D5219EA4DB00782DD0 /* color_splash_by_totron-d5ba2mp.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "color_splash_by_totron-d5ba2mp.jpg"; sourceTree = "<group>"; };
+		C710D9E8ADFE1CC2FCE5D0BB /* Pods-Testing1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Testing1.release.xcconfig"; path = "Pods/Target Support Files/Pods-Testing1/Pods-Testing1.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +49,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				675F0276C6B607A7D07870BC /* Pods_Testing1.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		025F5D2E20BFE840D9A82362 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7AC9B5D698C6C014C54E934B /* Pods-Testing1.debug.xcconfig */,
+				C710D9E8ADFE1CC2FCE5D0BB /* Pods-Testing1.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		904FBEDE219C1959000BD123 = {
 			isa = PBXGroup;
 			children = (
+				90BD35CA219EA2E500782DD0 /* RecordPic.png */,
+				90BD35CB219EA2E500782DD0 /* RecordPic@2x.png */,
+				90BD35C9219EA2E400782DD0 /* RecordPic@3x.png */,
+				90BD35D0219EA33B00782DD0 /* RecordingBt.png */,
+				90BD35CF219EA33A00782DD0 /* RecordingBt@2x.png */,
+				90BD35D5219EA4DB00782DD0 /* color_splash_by_totron-d5ba2mp.jpg */,
+				90BD35D1219EA33B00782DD0 /* RecordingBt@3x.png */,
 				904FBEE9219C1959000BD123 /* Testing1 */,
 				904FBEE8219C1959000BD123 /* Products */,
+				025F5D2E20BFE840D9A82362 /* Pods */,
+				D3A341DACD2A6B8844BB252E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +104,14 @@
 			path = Testing1;
 			sourceTree = "<group>";
 		};
+		D3A341DACD2A6B8844BB252E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5D0C02CB0B97762ADB7B5499 /* Pods_Testing1.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +119,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 904FBEFC219C195E000BD123 /* Build configuration list for PBXNativeTarget "Testing1" */;
 			buildPhases = (
+				7BA162E6635601B99795F8BA /* [CP] Check Pods Manifest.lock */,
 				904FBEE3219C1959000BD123 /* Sources */,
 				904FBEE4219C1959000BD123 /* Frameworks */,
 				904FBEE5219C1959000BD123 /* Resources */,
+				62BC86147E6E53DEC65BF4BC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -125,13 +172,69 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90BD35D3219EA33B00782DD0 /* RecordingBt.png in Resources */,
+				90BD35D6219EA4DC00782DD0 /* color_splash_by_totron-d5ba2mp.jpg in Resources */,
 				904FBEF8219C195E000BD123 /* LaunchScreen.storyboard in Resources */,
+				90BD35D4219EA33B00782DD0 /* RecordingBt@3x.png in Resources */,
 				904FBEF5219C195E000BD123 /* Assets.xcassets in Resources */,
 				904FBEF0219C1959000BD123 /* Main.storyboard in Resources */,
+				90BD35CE219EA2E500782DD0 /* RecordPic@2x.png in Resources */,
+				90BD35CD219EA2E500782DD0 /* RecordPic.png in Resources */,
+				90BD35D2219EA33B00782DD0 /* RecordingBt@2x.png in Resources */,
+				90BD35CC219EA2E500782DD0 /* RecordPic@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		62BC86147E6E53DEC65BF4BC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Testing1/Pods-Testing1-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Beethoven/Beethoven.framework",
+				"${BUILT_PRODUCTS_DIR}/Pitchy/Pitchy.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Beethoven.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pitchy.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Testing1/Pods-Testing1-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7BA162E6635601B99795F8BA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Testing1-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		904FBEE3219C1959000BD123 /* Sources */ = {
@@ -284,6 +387,7 @@
 		};
 		904FBEFD219C195E000BD123 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7AC9B5D698C6C014C54E934B /* Pods-Testing1.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -302,6 +406,7 @@
 		};
 		904FBEFE219C195E000BD123 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C710D9E8ADFE1CC2FCE5D0BB /* Pods-Testing1.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
