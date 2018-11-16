@@ -61,6 +61,8 @@ class ViewController: UIViewController, PitchEngineDelegate {
     }
     
     func pitchEngine(_ pitchEngine: PitchEngine, didReceivePitch pitch: Pitch) {
+        
+        display.text = pitch.note.string
         print(pitch)
         
         
