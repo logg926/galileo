@@ -16,6 +16,8 @@ class ViewController: UIViewController, PitchEngineDelegate , UIDocumentInteract
     
     
     var sequencerManager: SequencerManager?
+    var track : AKMusicTrack?
+    var sequencer : AKSequencer?
 //    var midiFilter = MIDIFilter()
     
     let documentInteractionController = UIDocumentInteractionController()
@@ -102,19 +104,30 @@ class ViewController: UIViewController, PitchEngineDelegate , UIDocumentInteract
     
     @IBAction func recordBt(_ sender: Any) {
         
-        let text = pitchEngine.active
-            ? NSLocalizedString("Start", comment: "").uppercased()
-            : NSLocalizedString("Stop", comment: "").uppercased()
-        
+//        let text = pitchEngine.active
+//            ? NSLocalizedString("Start", comment: "").uppercased()
+//            : NSLocalizedString("Stop", comment: "").uppercased()
+//
 //        button.setTitle(text, for: .normal)
 //        button.backgroundColor = pitchEngine.active
 //            ? UIColor(hex: "3DAFAE")
 //            : UIColor(hex: "E13C6C")
         
-        display.text = "--"
+//        display.text = "--"
 
 //
 //        pitchEngine.active ?: pitchEngine.start()
+        
+        sequencer = AKSequencer()
+        track = sequencer?.newTrack()
+        sequencer?.setLength(AKDuration(seconds: 2.0))
+        
+        track?.add(noteNumber: MIDINoteNumber(60),
+                   velocity: MIDIVelocity(100),
+                   position: AKDuration(seconds: 1, tempo: 120),
+                   duration: AKDuration(seconds: 0.5, tempo: 120))
+        
+        
         
         if (recordBtPic.image(for: .normal)==UIImage(named: "RecordingBt")){
             
@@ -143,8 +156,21 @@ class ViewController: UIViewController, PitchEngineDelegate , UIDocumentInteract
     
     
     @IBAction func exportButton(_ sender: Any) {
-        guard let url = sequencerManager?.getURLwithMIDIFileData() else { return }
-        share(url: url)
+        
+            guard let seq = sequencer,
+                let data = seq.genData() else { return  }
+            let fileName = "ExportedMIDI.mid"
+            do {
+                let tempPath = URL(fileURLWithPath: NSTemporaryDirectory().appending(fileName))
+                try data.write(to: tempPath as URL)
+                
+                share(url: tempPath)
+            } catch {
+                AKLog("couldn't write to URL")
+            }
+            return
+        
+        
     }
     
     fileprivate func share(url: URL) {

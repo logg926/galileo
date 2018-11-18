@@ -24,7 +24,7 @@ class SequencerManager {
         startAudioKit()
     }
     
-    fileprivate func setUpSequencer() {
+    func setUpSequencer() {
         seq = AKSequencer(filename: "D_mixolydian_01")
         seq?.setLength(minLoopLength)
         seq?.enableLooping()

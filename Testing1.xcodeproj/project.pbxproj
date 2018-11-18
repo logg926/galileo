@@ -77,6 +77,7 @@
 				90BD35D0219EA33B00782DD0 /* RecordingBt.png */,
 				90BD35CF219EA33A00782DD0 /* RecordingBt@2x.png */,
 				90BD35D5219EA4DB00782DD0 /* color_splash_by_totron-d5ba2mp.jpg */,
+				90BD35DD21A1B39F00782DD0 /* New Group */,
 				90BD35D1219EA33B00782DD0 /* RecordingBt@3x.png */,
 				904FBEE9219C1959000BD123 /* Testing1 */,
 				904FBEE8219C1959000BD123 /* Products */,
@@ -107,6 +108,13 @@
 				90BD35D7219F361200782DD0 /* mikmidi-bridge-header.h */,
 			);
 			path = Testing1;
+			sourceTree = "<group>";
+		};
+		90BD35DD21A1B39F00782DD0 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		D3A341DACD2A6B8844BB252E /* Frameworks */ = {
