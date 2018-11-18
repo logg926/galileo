@@ -68,9 +68,9 @@ class ViewController: UIViewController, PitchEngineDelegate , UIDocumentInteract
         self.view.backgroundColor = hexStringToUIColor("#363636")
 //        let newTracker :InputSignalTracker?
         
-        
-        
-        sequencerManager = SequencerManager()
+//
+//
+//        sequencerManager = SequencerManager()
         
         documentInteractionController.delegate = self
         AudioKit.output = AKMixer(oscillator, oscillator2)
@@ -82,12 +82,21 @@ class ViewController: UIViewController, PitchEngineDelegate , UIDocumentInteract
         }
         
         
+        
     }
+    
+    lazy var notes : [String] = { return []}()
+    var octaves : [Int] = { return []}()
+    var durations : [CFTimeInterval] = { return []}()
     
     func pitchEngine(_ pitchEngine: PitchEngine, didReceivePitch pitch: Pitch) {
         
-        display.text = pitch.note.string
+        
+        display.text = pitch.note.letter.rawValue
+        notes.append(pitch.note.letter.rawValue)
+        octaves.append(pitch.note.octave)
         print(pitch)
+        durations.append(CACurrentMediaTime())
         
         let offsetPercentage = pitch.closestOffset.percentage
         let absOffsetPercentage = abs(offsetPercentage)
@@ -118,6 +127,31 @@ class ViewController: UIViewController, PitchEngineDelegate , UIDocumentInteract
 //
 //        pitchEngine.active ?: pitchEngine.start()
         
+        
+        
+        if (recordBtPic.image(for: .normal)==UIImage(named: "RecordingBt")){
+            
+            recordBtPic.setImage(UIImage(named: "RecordPic"), for: .normal)
+            
+            
+            pitchEngine.active ?  pitchEngine.stop() : ()
+            
+            endrecord()
+            notes = []
+            durations = []
+            octaves = []
+            
+        }else{
+            
+            pitchEngine.active ? () : pitchEngine.start()
+            recordBtPic.setImage(UIImage(named: "RecordingBt"), for: .normal)
+            startrecord()
+        }
+        
+    }
+    
+    fileprivate func endrecord(){
+        
         sequencer = AKSequencer()
         track = sequencer?.newTrack()
         sequencer?.setLength(AKDuration(seconds: 2.0))
@@ -129,30 +163,28 @@ class ViewController: UIViewController, PitchEngineDelegate , UIDocumentInteract
         
         
         
-        if (recordBtPic.image(for: .normal)==UIImage(named: "RecordingBt")){
-            
-            recordBtPic.setImage(UIImage(named: "RecordPic"), for: .normal)
-            pitchEngine.active ?  pitchEngine.stop() : ()
-            
-            
-        }else{
-            pitchEngine.active ? () : pitchEngine.start()
-            recordBtPic.setImage(UIImage(named: "RecordingBt"), for: .normal)
-        }
+        print (notes)
+        print (durations)
+        print (octaves)
+        
+        
+    }
+    fileprivate func startrecord(){
+        return
         
     }
     
     
-    @IBAction func testingbutton(_ sender: Any) {
-        
-        if oscillator.isPlaying {
-            oscillator.stop()
-        } else {
-            oscillator.amplitude = random(0.5, 1)
-            oscillator.frequency = random(220, 880)
-            oscillator.start()
-        }
-    }
+//    @IBAction func testingbutton(_ sender: Any) {
+//        
+//        if oscillator.isPlaying {
+//            oscillator.stop()
+//        } else {
+//            oscillator.amplitude = random(0.5, 1)
+//            oscillator.frequency = random(220, 880)
+//            oscillator.start()
+//        }
+//    }
     
     
     @IBAction func exportButton(_ sender: Any) {
