@@ -117,12 +117,13 @@ class ViewController: UIViewController, PitchEngineDelegate , UIDocumentInteract
     private func endrecord(){
         
         
-        sequencer = AKSequencer()
-        track = sequencer?.newTrack()
-        do{
-            let duration = try (melody.last?.time)!
+        
+        let duration = melody.last?.time
+        if (duration != nil){
+            sequencer = AKSequencer()
+            track = sequencer?.newTrack()
             
-            sequencer?.setLength(AKDuration(seconds: duration))
+            sequencer?.setLength(AKDuration(seconds: duration!))
             for i in melody {
                 if (i.octive > 1)&&(i.octive<6){
                     
@@ -132,16 +133,20 @@ class ViewController: UIViewController, PitchEngineDelegate , UIDocumentInteract
                                duration: AKDuration(seconds: 0.7, tempo: 120))
                 }
             }
+            bigphoto.image = UIImage(named: "done")
+            playbuttonpic.isHidden = false
+            shareBt.isHidden = false
+            recordBtPic.setImage(UIImage(named: "Retry"), for: .normal)
+            
+        }else{
             
             
-            
-        }catch{
-            return
+            recordBtPic.setImage(UIImage(named: "RecordPic"), for: .normal)
         }
-        bigphoto.image = UIImage(named: "done")
-        playbuttonpic.isHidden = false
-        shareBt.isHidden = false
-        recordBtPic.setImage(UIImage(named: "Retry"), for: .normal)
+        
+            
+            
+        
         
         
     }

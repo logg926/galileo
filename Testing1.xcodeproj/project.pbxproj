@@ -144,6 +144,7 @@
 		90BD369721A1F6EE00782DD0 /* play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play@2x.png"; sourceTree = "<group>"; };
 		90BD369821A1F6EF00782DD0 /* share@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share@2x.png"; sourceTree = "<group>"; };
 		90BD369921A1F6EF00782DD0 /* done@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "done@3x.png"; sourceTree = "<group>"; };
+		90BD36AC21A1FF0800782DD0 /* Testing1.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Testing1.entitlements; sourceTree = "<group>"; };
 		C710D9E8ADFE1CC2FCE5D0BB /* Pods-Testing1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Testing1.release.xcconfig"; path = "Pods/Target Support Files/Pods-Testing1/Pods-Testing1.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -191,6 +192,7 @@
 		904FBEE9219C1959000BD123 /* Testing1 */ = {
 			isa = PBXGroup;
 			children = (
+				90BD36AC21A1FF0800782DD0 /* Testing1.entitlements */,
 				904FBEEA219C1959000BD123 /* AppDelegate.swift */,
 				904FBEEC219C1959000BD123 /* ViewController.swift */,
 				90BD35DB21A1899500782DD0 /* SequencerManager.swift */,
@@ -317,6 +319,11 @@
 				TargetAttributes = {
 					904FBEE6219C1959000BD123 = {
 						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -619,7 +626,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.logg.Testing1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.logg.SingToMidi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -638,7 +645,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.logg.Testing1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.logg.SingToMidi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
