@@ -19,7 +19,10 @@ import AudioKit
 class ViewController: UIViewController, PitchEngineDelegate , UIDocumentInteractionControllerDelegate {
 //
 //
-//    var sequencerManager: SequencerManager?
+    @IBOutlet weak var playbuttonpic: UIButton!
+    @IBOutlet weak var bigphoto: UIImageView!
+    //    var sequencerManager: SequencerManager?
+    @IBOutlet weak var shareBt: UIButton!
     var track : AKMusicTrack?
     var sequencer : AKSequencer?
 //    var midiFilter = MIDIFilter()
@@ -91,6 +94,17 @@ class ViewController: UIViewController, PitchEngineDelegate , UIDocumentInteract
             endrecord()
             melody = []
             
+            
+        }else if(recordBtPic.image(for: .normal)==UIImage(named: "Retry")){
+            
+            bigphoto.image = UIImage(named: "Mic")
+            playbuttonpic.isHidden = true
+            shareBt.isHidden = true
+            recordBtPic.setImage(UIImage(named: "RecordPic"), for: .normal)
+            
+            
+            
+            
         }else{
             starttime = CACurrentMediaTime()
             pitchEngine.active ? () : pitchEngine.start()
@@ -100,7 +114,7 @@ class ViewController: UIViewController, PitchEngineDelegate , UIDocumentInteract
         
     }
     
-    fileprivate func endrecord(){
+    private func endrecord(){
         
         
         sequencer = AKSequencer()
@@ -119,9 +133,17 @@ class ViewController: UIViewController, PitchEngineDelegate , UIDocumentInteract
                 }
             }
             
+            
+            
         }catch{
             return
         }
+        bigphoto.image = UIImage(named: "done")
+        playbuttonpic.isHidden = false
+        shareBt.isHidden = false
+        recordBtPic.setImage(UIImage(named: "Retry"), for: .normal)
+        
+        
     }
     private func startrecord(){
         return
