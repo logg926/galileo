@@ -30,14 +30,33 @@
                                     <action selector="recordBt:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hpY-v5-sDa"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uak-cP-2aT">
+                                <rect key="frame" x="164" y="513" width="47" height="26"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="testingbutton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ge3-NK-GeL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S0F-eB-I9e">
+                                <rect key="frame" x="207" y="531" width="78" height="30"/>
+                                <state key="normal" title="Export Midi"/>
+                                <connections>
+                                    <action selector="exportButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lYW-LG-8qj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="S0F-eB-I9e" firstAttribute="trailing" secondItem="AcW-ys-ji6" secondAttribute="trailing" id="5Bg-eT-Ih4"/>
                             <constraint firstItem="AcW-ys-ji6" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="94.5" id="PYD-UN-fWT"/>
+                            <constraint firstItem="uak-cP-2aT" firstAttribute="centerX" secondItem="AcW-ys-ji6" secondAttribute="centerX" id="R4h-lu-Tnt"/>
                             <constraint firstItem="2Il-B5-wDQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="108" id="RGJ-2m-uIX"/>
                             <constraint firstItem="2Il-B5-wDQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="166" id="SwN-H3-Olh"/>
                             <constraint firstItem="2Il-B5-wDQ" firstAttribute="centerX" secondItem="AcW-ys-ji6" secondAttribute="centerX" id="TyM-cP-hR2"/>
                             <constraint firstItem="AcW-ys-ji6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cDt-Ah-lfO"/>
+                            <constraint firstItem="uak-cP-2aT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="164" id="olS-j3-dxA"/>
+                            <constraint firstItem="S0F-eB-I9e" firstAttribute="top" secondItem="AcW-ys-ji6" secondAttribute="bottom" constant="64" id="qKv-Ll-t4a"/>
+                            <constraint firstItem="uak-cP-2aT" firstAttribute="top" secondItem="AcW-ys-ji6" secondAttribute="bottom" constant="46" id="ubu-P0-kC7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

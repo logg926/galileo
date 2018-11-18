@@ -10,8 +10,18 @@
 import UIKit
 import Beethoven
 import Pitchy
+import AudioKit
 
-class ViewController: UIViewController, PitchEngineDelegate {
+class ViewController: UIViewController, PitchEngineDelegate , UIDocumentInteractionControllerDelegate {
+    
+    
+    var sequencerManager: SequencerManager?
+//    var midiFilter = MIDIFilter()
+    
+    let documentInteractionController = UIDocumentInteractionController()
+    
+    var oscillator = AKOscillator()
+    var oscillator2 = AKOscillator()
     
     func hexStringToUIColor (_ hex:String) -> UIColor {
         var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
@@ -56,6 +66,18 @@ class ViewController: UIViewController, PitchEngineDelegate {
         self.view.backgroundColor = hexStringToUIColor("#363636")
 //        let newTracker :InputSignalTracker?
         
+        
+        
+        sequencerManager = SequencerManager()
+        
+        documentInteractionController.delegate = self
+        AudioKit.output = AKMixer(oscillator, oscillator2)
+        do{
+            
+            try AudioKit.start()
+        }catch{
+            
+        }
         
         
     }
@@ -105,6 +127,29 @@ class ViewController: UIViewController, PitchEngineDelegate {
             recordBtPic.setImage(UIImage(named: "RecordingBt"), for: .normal)
         }
         
+    }
+    
+    
+    @IBAction func testingbutton(_ sender: Any) {
+        
+        if oscillator.isPlaying {
+            oscillator.stop()
+        } else {
+            oscillator.amplitude = random(0.5, 1)
+            oscillator.frequency = random(220, 880)
+            oscillator.start()
+        }
+    }
+    
+    
+    @IBAction func exportButton(_ sender: Any) {
+        guard let url = sequencerManager?.getURLwithMIDIFileData() else { return }
+        share(url: url)
+    }
+    
+    fileprivate func share(url: URL) {
+        documentInteractionController.url = url
+        documentInteractionController.presentOptionsMenu(from: recordBtPic.frame, in: view, animated: true)
     }
     
     

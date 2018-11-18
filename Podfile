@@ -6,7 +6,7 @@ target 'Testing1' do
   use_frameworks!
   pod 'Pitchy'
   pod 'Beethoven'
-  pod 'MIKMIDI'
+  pod 'AudioKit', '~> 4.0'
   # Pods for Testing1
 
 end

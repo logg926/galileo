@@ -11,5 +11,3 @@
 
 
 #endif /* mikmidi_bridge_header_h */
-
-#import <MIKMIDI/MIKMIDI.h>

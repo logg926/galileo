@@ -21,6 +21,7 @@
 		90BD35D3219EA33B00782DD0 /* RecordingBt.png in Resources */ = {isa = PBXBuildFile; fileRef = 90BD35D0219EA33B00782DD0 /* RecordingBt.png */; };
 		90BD35D4219EA33B00782DD0 /* RecordingBt@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90BD35D1219EA33B00782DD0 /* RecordingBt@3x.png */; };
 		90BD35D6219EA4DC00782DD0 /* color_splash_by_totron-d5ba2mp.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 90BD35D5219EA4DB00782DD0 /* color_splash_by_totron-d5ba2mp.jpg */; };
+		90BD35DC21A1899500782DD0 /* SequencerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BD35DB21A1899500782DD0 /* SequencerManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		90BD35D1219EA33B00782DD0 /* RecordingBt@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RecordingBt@3x.png"; sourceTree = "<group>"; };
 		90BD35D5219EA4DB00782DD0 /* color_splash_by_totron-d5ba2mp.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "color_splash_by_totron-d5ba2mp.jpg"; sourceTree = "<group>"; };
 		90BD35D7219F361200782DD0 /* mikmidi-bridge-header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "mikmidi-bridge-header.h"; sourceTree = "<group>"; };
+		90BD35DB21A1899500782DD0 /* SequencerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequencerManager.swift; sourceTree = "<group>"; };
 		C710D9E8ADFE1CC2FCE5D0BB /* Pods-Testing1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Testing1.release.xcconfig"; path = "Pods/Target Support Files/Pods-Testing1/Pods-Testing1.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,6 +98,7 @@
 			children = (
 				904FBEEA219C1959000BD123 /* AppDelegate.swift */,
 				904FBEEC219C1959000BD123 /* ViewController.swift */,
+				90BD35DB21A1899500782DD0 /* SequencerManager.swift */,
 				904FBEEE219C1959000BD123 /* Main.storyboard */,
 				904FBEF4219C195E000BD123 /* Assets.xcassets */,
 				904FBEF6219C195E000BD123 /* LaunchScreen.storyboard */,
@@ -200,7 +203,6 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Testing1/Pods-Testing1-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Beethoven/Beethoven.framework",
-				"${BUILT_PRODUCTS_DIR}/MIKMIDI/MIKMIDI.framework",
 				"${BUILT_PRODUCTS_DIR}/Pitchy/Pitchy.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -208,7 +210,6 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Beethoven.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MIKMIDI.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pitchy.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -248,6 +249,7 @@
 				904FBEED219C1959000BD123 /* ViewController.swift in Sources */,
 				904FBEEB219C1959000BD123 /* AppDelegate.swift in Sources */,
 				904FBEF3219C1959000BD123 /* Testing1.xcdatamodeld in Sources */,
+				90BD35DC21A1899500782DD0 /* SequencerManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,7 +405,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.logg.Testing1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/loggcheng/Desktop/Comp1943FinalProject/Testing1/Testing1/mikmidi-bridge-header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -423,7 +424,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.logg.Testing1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/loggcheng/Desktop/Comp1943FinalProject/Testing1/Testing1/mikmidi-bridge-header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
