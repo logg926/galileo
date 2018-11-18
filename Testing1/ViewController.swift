@@ -26,31 +26,6 @@ class ViewController: UIViewController, PitchEngineDelegate , UIDocumentInteract
     
     let documentInteractionController = UIDocumentInteractionController()
     
-    var oscillator = AKOscillator()
-    var oscillator2 = AKOscillator()
-    
-    func hexStringToUIColor (_ hex:String) -> UIColor {
-        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
-        
-        if (cString.hasPrefix("#")) {
-            cString.remove(at: cString.startIndex)
-        }
-        
-        if ((cString.count) != 6) {
-            return UIColor.gray
-        }
-        
-        var rgbValue:UInt32 = 0
-        Scanner(string: cString).scanHexInt32(&rgbValue)
-        
-        return UIColor(
-            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
-            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
-            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
-            alpha: CGFloat(1.0)
-        )
-    }
-    
     
     @IBOutlet weak var recordBtPic: UIButton!
     
@@ -60,21 +35,14 @@ class ViewController: UIViewController, PitchEngineDelegate , UIDocumentInteract
         pitchEngine.levelThreshold = -30.0
         return pitchEngine
         }()
-//        = PitchEngine(config: config, delegate: self)
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        self.view.backgroundColor = hexStringToUIColor("#363636")
-//        let newTracker :InputSignalTracker?
-        
-//
-//
-//        sequencerManager = SequencerManager()
         
         documentInteractionController.delegate = self
-        AudioKit.output = AKMixer(oscillator, oscillator2)
+        
+        
         do{
             
             try AudioKit.start()
@@ -86,9 +54,6 @@ class ViewController: UIViewController, PitchEngineDelegate , UIDocumentInteract
         
     }
     
-    var notes : [Int] = []
-    var octaves : [Int] = []
-    var durations : [CFTimeInterval] = []
     var starttime : CFTimeInterval = 0
     
     var melody : [(note: Int,time: CFTimeInterval,octive: Int)] = [(0,0,0)]
@@ -99,9 +64,7 @@ class ViewController: UIViewController, PitchEngineDelegate , UIDocumentInteract
         if (thenote==melody.last?.0){
         }else{
             melody.append((thenote,CACurrentMediaTime()-starttime,pitch.offsets.closest.note.octave))
-            notes.append(pitch.offsets.closest.note.index+69)
-            octaves.append(pitch.offsets.closest.note.octave)
-            durations.append(CACurrentMediaTime()-starttime)
+            
         }
         print(pitch)
         
@@ -116,21 +79,6 @@ class ViewController: UIViewController, PitchEngineDelegate , UIDocumentInteract
     }
     
     @IBAction func recordBt(_ sender: Any) {
-        
-//        let text = pitchEngine.active
-//            ? NSLocalizedString("Start", comment: "").uppercased()
-//            : NSLocalizedString("Stop", comment: "").uppercased()
-//
-//        button.setTitle(text, for: .normal)
-//        button.backgroundColor = pitchEngine.active
-//            ? UIColor(hex: "3DAFAE")
-//            : UIColor(hex: "E13C6C")
-        
-//        display.text = "--"
-
-//
-//        pitchEngine.active ?: pitchEngine.start()
-        
         
         
         if (recordBtPic.image(for: .normal)==UIImage(named: "RecordingBt")){
@@ -174,44 +122,11 @@ class ViewController: UIViewController, PitchEngineDelegate , UIDocumentInteract
         }catch{
             return
         }
-        
-        
-        
-        
-        
-//        notes
-//        durations = []
-//        octaves
-//
-//        track?.add(noteNumber: MIDINoteNumber(60),
-//                   velocity: MIDIVelocity(100),
-//                   position: AKDuration(seconds: durations[i], tempo: 120),
-//                   duration: AKDuration(seconds: 0.5, tempo: 120))
-//
-//
-//
-//        print (notes)
-//        print (durations)
-//        print (octaves)
-        
-        
     }
-    fileprivate func startrecord(){
+    private func startrecord(){
         return
         
     }
-    
-    
-//    @IBAction func testingbutton(_ sender: Any) {
-//        
-//        if oscillator.isPlaying {
-//            oscillator.stop()
-//        } else {
-//            oscillator.amplitude = random(0.5, 1)
-//            oscillator.frequency = random(220, 880)
-//            oscillator.start()
-//        }
-//    }
     
     
     @IBAction func exportButton(_ sender: Any) {
