@@ -12,6 +12,10 @@ import Beethoven
 import Pitchy
 import AudioKit
 
+
+
+
+
 class ViewController: UIViewController, PitchEngineDelegate , UIDocumentInteractionControllerDelegate {
 //
 //
@@ -59,9 +63,6 @@ class ViewController: UIViewController, PitchEngineDelegate , UIDocumentInteract
 //        = PitchEngine(config: config, delegate: self)
     
     
-    
-    @IBOutlet weak var display: UILabel!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -90,17 +91,19 @@ class ViewController: UIViewController, PitchEngineDelegate , UIDocumentInteract
     var durations : [CFTimeInterval] = []
     var starttime : CFTimeInterval = 0
     
+    var melody : [(note: Int,time: CFTimeInterval,octive: Int)] = [(0,0,0)]
+    
     func pitchEngine(_ pitchEngine: PitchEngine, didReceivePitch pitch: Pitch) {
         
-        pitch.offsets.closest.note.string
-        display.text = pitch.note.letter.rawValue
-        notes.append(pitch.offsets.closest.note.index+69)
-        octaves.append(pitch.offsets.closest.note.octave)
+        let thenote = pitch.offsets.closest.note.index+69
+        if (thenote==melody.last?.0){
+        }else{
+            melody.append((thenote,CACurrentMediaTime()-starttime,pitch.offsets.closest.note.octave))
+            notes.append(pitch.offsets.closest.note.index+69)
+            octaves.append(pitch.offsets.closest.note.octave)
+            durations.append(CACurrentMediaTime()-starttime)
+        }
         print(pitch)
-        durations.append(CACurrentMediaTime()-starttime)
-        
-        let offsetPercentage = pitch.closestOffset.percentage
-        let absOffsetPercentage = abs(offsetPercentage)
         
     }
     
@@ -138,9 +141,7 @@ class ViewController: UIViewController, PitchEngineDelegate , UIDocumentInteract
             pitchEngine.active ?  pitchEngine.stop() : ()
             
             endrecord()
-            notes = []
-            durations = []
-            octaves = []
+            melody = []
             
         }else{
             starttime = CACurrentMediaTime()
@@ -153,28 +154,30 @@ class ViewController: UIViewController, PitchEngineDelegate , UIDocumentInteract
     
     fileprivate func endrecord(){
         
-        print (notes)
-        print(durations)
-        print(octaves)
-        
         
         sequencer = AKSequencer()
         track = sequencer?.newTrack()
-        
-        do {
-            sequencer?.setLength(AKDuration(seconds: durations[durations.endIndex-1]))
-            for i in 0..<durations.endIndex-durations.startIndex {
-                if (octaves[i+octaves.startIndex] > 1)&&(octaves[i+octaves.startIndex]<6){
+        do{
+            let duration = try (melody.last?.time)!
+            
+            sequencer?.setLength(AKDuration(seconds: duration))
+            for i in melody {
+                if (i.octive > 1)&&(i.octive<6){
                     
-                    track?.add(noteNumber: MIDINoteNumber(notes[i+notes.startIndex]),
+                    track?.add(noteNumber: MIDINoteNumber(i.note),
                                velocity: MIDIVelocity(100),
-                               position: AKDuration(seconds: durations[i], tempo: 120),
-                               duration: AKDuration(seconds: 0.5, tempo: 120))
+                               position: AKDuration(seconds: i.time, tempo: 120),
+                               duration: AKDuration(seconds: 0.7, tempo: 120))
                 }
             }
-        }catch{
             
+        }catch{
+            return
         }
+        
+        
+        
+        
         
 //        notes
 //        durations = []
