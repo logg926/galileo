@@ -13,9 +13,9 @@ import Pitchy
 import AudioKit
 
 class ViewController: UIViewController, PitchEngineDelegate , UIDocumentInteractionControllerDelegate {
-    
-    
-    var sequencerManager: SequencerManager?
+//
+//
+//    var sequencerManager: SequencerManager?
     var track : AKMusicTrack?
     var sequencer : AKSequencer?
 //    var midiFilter = MIDIFilter()
@@ -85,18 +85,19 @@ class ViewController: UIViewController, PitchEngineDelegate , UIDocumentInteract
         
     }
     
-    lazy var notes : [String] = { return []}()
-    var octaves : [Int] = { return []}()
-    var durations : [CFTimeInterval] = { return []}()
+    var notes : [Int] = []
+    var octaves : [Int] = []
+    var durations : [CFTimeInterval] = []
+    var starttime : CFTimeInterval = 0
     
     func pitchEngine(_ pitchEngine: PitchEngine, didReceivePitch pitch: Pitch) {
         
-        
+        pitch.offsets.closest.note.string
         display.text = pitch.note.letter.rawValue
-        notes.append(pitch.note.letter.rawValue)
-        octaves.append(pitch.note.octave)
+        notes.append(pitch.offsets.closest.note.index+69)
+        octaves.append(pitch.offsets.closest.note.octave)
         print(pitch)
-        durations.append(CACurrentMediaTime())
+        durations.append(CACurrentMediaTime()-starttime)
         
         let offsetPercentage = pitch.closestOffset.percentage
         let absOffsetPercentage = abs(offsetPercentage)
@@ -142,7 +143,7 @@ class ViewController: UIViewController, PitchEngineDelegate , UIDocumentInteract
             octaves = []
             
         }else{
-            
+            starttime = CACurrentMediaTime()
             pitchEngine.active ? () : pitchEngine.start()
             recordBtPic.setImage(UIImage(named: "RecordingBt"), for: .normal)
             startrecord()
@@ -152,20 +153,43 @@ class ViewController: UIViewController, PitchEngineDelegate , UIDocumentInteract
     
     fileprivate func endrecord(){
         
+        print (notes)
+        print(durations)
+        print(octaves)
+        
+        
         sequencer = AKSequencer()
         track = sequencer?.newTrack()
-        sequencer?.setLength(AKDuration(seconds: 2.0))
         
-        track?.add(noteNumber: MIDINoteNumber(60),
-                   velocity: MIDIVelocity(100),
-                   position: AKDuration(seconds: 1, tempo: 120),
-                   duration: AKDuration(seconds: 0.5, tempo: 120))
+        do {
+            sequencer?.setLength(AKDuration(seconds: durations[durations.endIndex-1]))
+            for i in 0..<durations.endIndex-durations.startIndex {
+                if (octaves[i+octaves.startIndex] > 1)&&(octaves[i+octaves.startIndex]<6){
+                    
+                    track?.add(noteNumber: MIDINoteNumber(notes[i+notes.startIndex]),
+                               velocity: MIDIVelocity(100),
+                               position: AKDuration(seconds: durations[i], tempo: 120),
+                               duration: AKDuration(seconds: 0.5, tempo: 120))
+                }
+            }
+        }catch{
+            
+        }
         
-        
-        
-        print (notes)
-        print (durations)
-        print (octaves)
+//        notes
+//        durations = []
+//        octaves
+//
+//        track?.add(noteNumber: MIDINoteNumber(60),
+//                   velocity: MIDIVelocity(100),
+//                   position: AKDuration(seconds: durations[i], tempo: 120),
+//                   duration: AKDuration(seconds: 0.5, tempo: 120))
+//
+//
+//
+//        print (notes)
+//        print (durations)
+//        print (octaves)
         
         
     }
@@ -210,5 +234,10 @@ class ViewController: UIViewController, PitchEngineDelegate , UIDocumentInteract
         documentInteractionController.presentOptionsMenu(from: recordBtPic.frame, in: view, animated: true)
     }
     
+    @IBAction func playButton(_ sender: Any) {
+        sequencer?.rewind()
+        sequencer?.play()
+        
+    }
     
 }
