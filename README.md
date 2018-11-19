@@ -1,4 +1,4 @@
-# midi-generator
+# Galileo
 
 An iPhone app that takes voice input and output midi file
 
