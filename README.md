@@ -6,4 +6,6 @@ For amateur composer to record melody idea anywhere at any time!
 
 Installation:
 
+```sh
 pod install
+```
